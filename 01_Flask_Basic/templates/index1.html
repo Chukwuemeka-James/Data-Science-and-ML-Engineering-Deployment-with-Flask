@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Science Class Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Data Science Class!</h1>
+
+    <h2>Class Members</h2>
+    <ul>
+        {% for student in students_list %}
+            <li>
+                {{ student }}
+                {% if student == "Mike" %}
+                    - Class Rep
+                {% elif student == "Alice" %}
+                    - Assistant Class Rep
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Course Modules and Progress</h2>
+    <ul>
+        {% for module, progress in modules_list.items() %}
+            <li>
+                {{ module }} - Progress: {{ progress }}%
+                {% if progress == 100 %}
+                    Completed!
+                {% elif progress >= 50 %}
+                    Ongoing
+                {% else %}
+                    Just Started
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Upcoming Projects</h2>
+    {% if projects %}
+        <ol>
+            {% for project in projects_list %}
+                <li>{{ project }}</li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>No projects announced yet. Stay tuned!</p>
+    {% endif %}
+
+</body>
+</html>

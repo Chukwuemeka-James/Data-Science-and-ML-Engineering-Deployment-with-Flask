@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Class Members{% endblock %}
+
+{% block content %}
+    <h2>Class Members</h2>
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student | greet }} <br>
+                Your Data Science community email is: {{ student | work_email }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

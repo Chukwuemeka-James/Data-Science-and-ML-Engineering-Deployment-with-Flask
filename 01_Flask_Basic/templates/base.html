@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Data Science Dashboard{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to the Data Science Class Dashboard</h1>
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Child template will override this -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2025 Data Science Community</p>
+    </footer>
+
+</body>
+</html>
