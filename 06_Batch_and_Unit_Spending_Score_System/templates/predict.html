@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Spending Score Predictor</title></head>
+<body>
+    <h2>Spending Score Predictor (Welcome {{ session.username }})</h2>
+
+    <h3>Single Prediction</h3>
+    <form method="POST">
+        <label>Gender:</label><br>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+
+        <label>Age:</label><br>
+        <input type="number" name="age" required><br><br>
+
+        <label>Annual Income (k$):</label><br>
+        <input type="number" name="income" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Prediction Result</h3>
+        <p>Your predicted Spending Score is: <strong>{{ prediction }}</strong></p>
+    {% endif %}
+
+    <br><a href="{{ url_for('batch_predict') }}">Batch Prediction (Upload CSV)</a><br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

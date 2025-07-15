@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Batch Prediction</title></head>
+<body>
+    <h2>Batch Prediction (Welcome {{ session.username }})</h2>
+
+    <form action="{{ url_for('batch_predict') }}" method="POST" enctype="multipart/form-data">
+        <label>Upload CSV file:</label><br>
+        <input type="file" name="file" accept=".csv" required><br><br>
+
+        <input type="checkbox" name="download" value="yes">
+        <label>Allow download of result CSV</label><br><br>
+
+        <input type="submit" value="Upload and Predict">
+    </form>
+
+    {% if table %}
+        <h3>Prediction Results</h3>
+        {{ table|safe }}
+    {% endif %}
+
+    {% if download_link %}
+        <p><a href="{{ download_link }}">Download CSV with Predictions</a></p>
+    {% endif %}
+
+    <br><a href="{{ url_for('predict') }}">Back to Single Prediction</a><br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
