@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Verify Student{% endblock %}
+
+{% block content %}
+    <h2>Which student would you like to verify?</h2>
+    <ul>
+        {% for student in students %}
+            <li><a href="{{ url_for('student_detail', student_name=student) }}">{{ student.title() }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">⬅️ Back to all students</a>
+{% endblock %}
