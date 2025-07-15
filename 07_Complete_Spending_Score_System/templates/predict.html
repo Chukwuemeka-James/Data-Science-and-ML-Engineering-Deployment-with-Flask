@@ -1,0 +1,38 @@
+<!-- templates/predict.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Prediction - Spending Score App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Single Prediction</h2>
+        <form method="POST">
+            <label for="gender">Gender:</label>
+            <select name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" name="age" min="1" required>
+
+            <label for="income">Annual Income (k$):</label>
+            <input type="number" name="income" min="1" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <p><strong>Predicted Spending Score:</strong> {{ prediction }}</p>
+            </div>
+        {% endif %}
+
+        <a href="{{ url_for('batch_predict') }}">Batch Prediction</a> |
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
