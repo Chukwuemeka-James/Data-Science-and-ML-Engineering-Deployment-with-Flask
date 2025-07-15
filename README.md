@@ -215,17 +215,3 @@ Female,30,60
 ## Model Training
 
 See `07_Complete_Spending_Score_System/research/research.ipynb` for data preparation, model training, and export of the model and scaler.
-
----
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-## Happy Learning
-
-This repository is crafted for learners everywhere. Explore, experiment, and build your own ML-powered web apps. If you have questions or want to contribute, feel free to open an issue or pull request. Happy coding!
-
-Ready to start? Jump into any folder above and follow along!
