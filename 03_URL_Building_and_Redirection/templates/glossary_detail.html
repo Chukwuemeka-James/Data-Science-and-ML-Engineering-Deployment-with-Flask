@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Term Detail{% endblock %}
+
+{% block content %}
+    <h2>{{ term.term }}</h2>
+    <p><strong>Definition:</strong> {{ term.definition }}</p>
+
+    <a href="{{ url_for('index') }}">⬅️ Back to Home</a> | 
+    <a href="{{ url_for('glossary_prompt') }}">Explore More Terms</a>
+{% endblock %}

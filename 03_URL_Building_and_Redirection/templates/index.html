@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Glossary Home{% endblock %}
+
+{% block content %}
+    <h2>Explore Data Science Terms</h2>
+    <ul>
+        {% for term in terms %}
+            <li><a href="{{ url_for('glossary_detail', term_name=term) }}">{{ term.replace('_', ' ').title() }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
