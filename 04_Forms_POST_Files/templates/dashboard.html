@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - File Upload</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Dashboard</h2>
+
+    <a href="/logout" class="btn btn-danger mb-3">Logout</a>
+
+    {% if message %}
+    <div class="alert alert-info">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <h3>Upload a file (Excel, CSV, or Text)</h3>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose file:</label><br>
+        <input type="file" id="file" name="file" accept=".txt, .xls, .xlsx, .csv" required><br><br>
+
+        <input type="submit" value="Upload File" class="btn btn-success">
+    </form>
+
+    {% if table %}
+    <hr>
+    <h4>File Content:</h4>
+    <div>{{ table|safe }}</div>
+    {% endif %}
+
+    {% if text_content %}
+    <hr>
+    <h4>Text File Content:</h4>
+    <pre>{{ text_content }}</pre>
+    {% endif %}
+</div>
+</body>
+</html>
